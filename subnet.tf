@@ -1,5 +1,5 @@
 # Définir Public Subnet
-resource "aws_subnet" "web-subnet" {
+resource "aws_subnet" "public-subnet" {
   count                   = 2
   vpc_id                  = aws_vpc.my-vpc.id
   cidr_block              = var.public_subnet_cidr[count.index]
@@ -11,7 +11,7 @@ resource "aws_subnet" "web-subnet" {
   }
 }
 # Définir Private Subnet
-resource "aws_subnet" "web-subnet" {
+resource "aws_subnet" "private-subnet" {
   count                   = 2
   vpc_id                  = aws_vpc.my-vpc.id
   cidr_block              = var.private_subnet_cidr[count.index]
@@ -23,7 +23,7 @@ resource "aws_subnet" "web-subnet" {
   }
 }
 # Définir DB Subnet
-resource "aws_subnet" "web-subnet" {
+resource "aws_subnet" "db-subnet" {
   count                   = 2
   vpc_id                  = aws_vpc.my-vpc.id
   cidr_block              = var.db_subnet_cidr[count.index]

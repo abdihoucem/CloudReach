@@ -18,7 +18,7 @@ variable "db_subnet_cidr" {
   default = ["10.0.21.0/24", "10.0.22.0/24"]
 }
 # Definir Liste AZ
-variable "availability_zone_names" {
+variable "availability_zone" {
   type    = list(string)
   default = ["eu-west-3a", "eu-west-3b"]
 }
@@ -44,7 +44,7 @@ variable "rds_instance" {
     engine_version      = "8.0.20"
     instance_class      = "db.t2.micro"
     multi_az            = false
-    name                = "mydb"
+    name                = "cloudreachdb"
     skip_final_snapshot = true
   }
 }
@@ -59,3 +59,13 @@ variable "user_information" {
   sensitive = true
 }
 
+variable "dns_zone" {
+  description = "domaine dans route53"
+  default     = "test1985.com"
+}
+
+
+variable "dns_name" {
+  description = "domaine name"
+  default     = "ssl"
+}

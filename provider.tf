@@ -7,7 +7,10 @@ terraform {
   }
 }
 
-# Configure the AWS Provider
 provider "aws" {
   region = "eu-west-3"
+}
+provider "aws" {
+  alias   = "account_route53"
+  version = ">= 3.0.0"
 }
