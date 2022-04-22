@@ -50,22 +50,24 @@ variable "rds_instance" {
 }
 
 #Sensitive variables de Base des Données
-variable "user_information" {
-  type = map(any)
-  default = {
-    username = "username"
-    password = "password"
-  }
-  sensitive = true
+variable "db_username" {
+  description = "Database administrator username"
+  type        = string
+  sensitive   = true
 }
 
-variable "dns_zone" {
-  description = "domaine dans route53"
-  default     = "test1985.com"
+variable "db_password" {
+  description = "Database administrator password"
+  type        = string
+  sensitive   = true
 }
+
+#variable "dns_zone" {
+ #description = "domaine dans route53"
+#}
 
 
 variable "dns_name" {
   description = "domaine name"
-  default     = "ssl"
+  default = "cloudreachtest.com"
 }
