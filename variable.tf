@@ -63,11 +63,11 @@ variable "db_password" {
 }
 
 #variable "dns_zone" {
- #description = "domaine dans route53"
+#description = "domaine dans route53"
 #}
 
 
 variable "dns_name" {
   description = "domaine name"
-  default = "cloudreachtest.com"
+  default     = "cloudreachtest.com"
 }

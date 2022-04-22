@@ -1,10 +1,10 @@
 resource "aws_route53_zone" "public" {
-  name         = var.dns_name
+  name = var.dns_name
 }
 
 resource "aws_acm_certificate" "certificat" {
 
- domain_name       = "${var.dns_name}"
+  domain_name       = var.dns_name
   validation_method = "DNS"
 
   lifecycle {
@@ -15,7 +15,7 @@ resource "aws_acm_certificate" "certificat" {
 resource "aws_acm_certificate_validation" "certificat" {
   certificate_arn         = aws_acm_certificate.certificat.arn
   validation_record_fqdns = [aws_route53_record.cert_validation.fqdn]
-   lifecycle {
+  lifecycle {
     create_before_destroy = true
   }
 
@@ -29,19 +29,18 @@ resource "aws_route53_record" "cert_validation" {
   zone_id         = aws_route53_zone.public.id
   ttl             = 60
   provider        = aws.account_route53
-   lifecycle {
+  lifecycle {
     create_before_destroy = true
   }
 }
 
 resource "aws_route53_record" "certificat" {
-  name = var.dns_name
-  type = "CNAME"
-
-  records = [
-    aws_lb.ELB-Web.dns_name,
-  ]
-
   zone_id = aws_route53_zone.public.zone_id
-  ttl     = "60"
+  name    = var.dns_name
+  type    = "CNAME"
+  records = [
+    "0 issue \"amazon.com\"",
+    "0 issuewild \"amazon.com\""
+  ]
+  ttl = 60
 }
