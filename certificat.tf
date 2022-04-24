@@ -1,4 +1,5 @@
 /*resource "aws_route53_zone" "public" {
+  fo
   name = var.dns_name
 }
 
