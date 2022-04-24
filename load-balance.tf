@@ -22,10 +22,10 @@ resource "aws_lb_target_group_attachment" "attachment-elb-web" {
 
 resource "aws_lb_listener" "external-elb-web" {
   load_balancer_arn = aws_lb.ELB-Web.arn
-  port              = "443"
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = aws_acm_certificate.certificat.arn
+  port              = "80"
+  protocol          = "HTTP"
+ # ssl_policy        = "ELBSecurityPolicy-2016-08"
+  #certificate_arn   = aws_acm_certificate.certificat.arn
 
   default_action {
     type             = "forward"
