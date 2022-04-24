@@ -7,9 +7,7 @@ terraform {
   }
 }
 
-provider "aws" {
-  region = "eu-west-3"
-}
+
 provider "aws" {
   alias   = "account_route53"
   version = ">= 3.4.0"
