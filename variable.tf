@@ -54,13 +54,13 @@ variable "db_username" {
   description = "Database administrator username"
   type        = string
   sensitive   = true
-  default = "root"
+  default     = "root"
 }
 
 variable "db_password" {
   description = "Database administrator password"
   type        = string
-  default = "Test12345"
+  default     = "Test12345"
   sensitive   = true
 }
 
