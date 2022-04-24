@@ -41,14 +41,12 @@ jobs:
       run: terraform fmt -check
 
     # Generates an execution plan for Terraform
-    - name: Configure AWS credentials
+    - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        AWS_ACCESS_KEY_ID: AKIAUURTFZ22WDLQX6MI
-        AWS_SECRET_ACCESS_KEY: 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
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-3
-        #role-to-assume: arn:aws:iam::319008657077:role/github
-        #role-duration-seconds: 900 # the ttl of the session, in seconds.
         
     - name: Terraform Plan
       run: terraform plan -input=false
