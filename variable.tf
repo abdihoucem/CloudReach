@@ -73,3 +73,6 @@ variable "dns_name" {
   description = "domaine name"
   default     = "cloudreachtest.com"
 }
+variable "key_path" {
+  default = "C:/Users/abdih/.ssh/id_rsa.pub"
+}

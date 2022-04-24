@@ -16,4 +16,4 @@ This repository contains the following files:
 - rds.tf                 : create data base
 - certificat.tf          : create le certificat SSl for load balancer listener
 - variable.tf            : create different variables
-- cloudreachtest.sh       : script for test
+- cloudreachtest.sh      : script for test

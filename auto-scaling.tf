@@ -14,10 +14,20 @@ resource "aws_autoscaling_group" "auto-scaling-web" {
   min_size             = 1
   max_size             = 3
   desired_capacity     = 1
+  health_check_type    = "ELB"
+  target_group_arns    = [aws_lb_target_group.target-elb-web.arn]
   launch_configuration = aws_launch_configuration.configure.name
   vpc_zone_identifier  = [aws_subnet.public-subnet[0].id, aws_subnet.public-subnet[1].id]
+  enabled_metrics = [
+    "GroupMinSize",
+    "GroupMaxSize",
+    "GroupDesiredCapacity",
+    "GroupInServiceInstances",
+    "GroupTotalInstances"
+  ]
+  metrics_granularity = "1Minute"
   lifecycle {
-    ignore_changes = [desired_capacity, target_group_arns]
+    create_before_destroy = true
   }
 }
 
@@ -51,10 +61,20 @@ resource "aws_autoscaling_group" "auto-scaling-app" {
   min_size             = 1
   max_size             = 3
   desired_capacity     = 1
+  health_check_type    = "ELB"
+  target_group_arns    = [aws_lb_target_group.target-elb-app.arn]
   launch_configuration = aws_launch_configuration.configure.name
   vpc_zone_identifier  = [aws_subnet.private-subnet[0].id, aws_subnet.private-subnet[1].id]
+  enabled_metrics = [
+    "GroupMinSize",
+    "GroupMaxSize",
+    "GroupDesiredCapacity",
+    "GroupInServiceInstances",
+    "GroupTotalInstances"
+  ]
+  metrics_granularity = "1Minute"
   lifecycle {
-    ignore_changes = [desired_capacity, target_group_arns]
+    create_before_destroy = true
   }
 }
 

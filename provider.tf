@@ -5,4 +5,9 @@ terraform {
       version = "~> 4.11.0"
     }
   }
+
+
+}
+provider "aws" {
+  region = "eu-west-3"
 }
