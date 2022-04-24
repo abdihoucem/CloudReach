@@ -1,4 +1,4 @@
-resource "aws_route53_zone" "public" {
+/*resource "aws_route53_zone" "public" {
   name = var.dns_name
 }
 
@@ -43,4 +43,4 @@ resource "aws_route53_record" "certificat" {
     "0 issuewild \"amazon.com\""
   ]
   ttl = 60
-}
+}*/
