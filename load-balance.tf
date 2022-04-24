@@ -24,7 +24,7 @@ resource "aws_lb_listener" "external-elb-web" {
   load_balancer_arn = aws_lb.ELB-Web.arn
   port              = "80"
   protocol          = "HTTP"
- # ssl_policy        = "ELBSecurityPolicy-2016-08"
+  #ssl_policy        = "ELBSecurityPolicy-2016-08"
   #certificate_arn   = aws_acm_certificate.certificat.arn
 
   default_action {
