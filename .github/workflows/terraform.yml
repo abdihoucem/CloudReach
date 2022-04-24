@@ -87,9 +87,9 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: eu-wes-3
+        aws-access-key-id: AKIAUURTFZ222PTXBB4B
+        aws-secret-access-key: 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
+        aws-region: eu-west-3
     - name: Terraform Plan
       run: terraform plan -input=false
 
